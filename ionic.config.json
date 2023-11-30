@@ -1,0 +1,7 @@
+{
+  "name": "BNApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
