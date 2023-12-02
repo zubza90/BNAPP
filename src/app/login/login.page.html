@@ -15,14 +15,11 @@
         <div class="text-container">
           <ion-input [(ngModel)]="usuario" class="transparent-input" aria-label="Success input"  placeholder="Correo" ></ion-input>
           <ion-input [(ngModel)]="password" type="password" class="transparent-input"  aria-label="Success input"  placeholder="Contraseña"></ion-input>
-          <ion-button (click)="onLogin()" shape="round">Ingresar</ion-button>
+          <ion-button (click)="onLogin()" shape="round" >Ingresar</ion-button>
         </div>
-        <ion-card-content class="olvContra">
-          <a routerLink="/recuperar">¿Olvidaste tu contraseña?</a>
-        </ion-card-content>
           <ion-card-content class="cuenta">
             <label>No tienes una cuenta?</label>
-            <a routerLink="/resgitro">Crea una</a>
+            <a routerLink="/registro">Crea una</a>
           </ion-card-content>
       </ion-card-content>
     </div>

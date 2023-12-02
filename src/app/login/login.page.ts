@@ -25,32 +25,34 @@ export class LoginPage implements OnInit {
     this.servicio.showToast("Ingresa tus creedenciales para ingresar...");
   }
   
-  async onLogin(){
+  async onLogin() {
     const loader = await this.servicio.showLoader("Cargando");
-
-    if (this.usuario == "") {
+  
+    if (this.usuario === "") {
       await loader.dismiss();
-      this.servicio.showAlert("Debe ingresar un usuario","Error");
+      this.servicio.showAlert("Debe ingresar un usuario", "Error");
       return;
     }
-    if (this.password == "") {
+  
+    if (this.password === "") {
       await loader.dismiss();
-      this.servicio.showAlert("Debe ingresar una contraseña","Error");
+      this.servicio.showAlert("Debe ingresar una contraseña", "Error");
       return;
     }
+  
     try {
-      await this.auth.signInWithEmailAndPassword(this.usuario,this.password);
+      await this.auth.signInWithEmailAndPassword(this.usuario, this.password);
       this.storage.correoUsuario = this.usuario;
       await loader.dismiss();
-      await this.router.navigateByUrl('menu');
-    } catch (error:any) {
-      if (error.code == 'auth/invalid-email') {
+      await this.router.navigateByUrl('/home'); 
+    } catch (error: any) {
+      if (error.code === 'auth/invalid-email') {
         await loader.dismiss();
-        await this.servicio.showAlert("El correo no es el correcto.","Error");
+        await this.servicio.showAlert("El correo no es el correcto.", "Error");
       }
-      if (error.code == 'auth/weak-password') {
+      if (error.code === 'auth/weak-password') {
         await loader.dismiss();
-        await this.servicio.showAlert("El largo de la contraseña es muy corto.","Error");
+        await this.servicio.showAlert("El largo de la contraseña es muy corto.", "Error");
       }
     }
   }

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Panaderia Don Nico
+      Cuentas Don Nico
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,14 +12,22 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+  <br>
+  <h1>Guardar usuario</h1>
 
-  <ion-input type="email" placeholder="ingrese su email" [(ngModel)]="usuario.email"></ion-input>
-  <ion-input type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password"></ion-input>
-  <ion-button (click)="altUsuario()">guardar usuario</ion-button>
+  <ion-input type="email" placeholder="Ingrese su email" [(ngModel)]="usuario.email"></ion-input>
+  <ion-input type="password" placeholder="Ingrese su password" [(ngModel)]="usuario.password"></ion-input>
+  <ion-button (click)="altUsuario()">Guardar usuario</ion-button>
 
-  <ul>
-    <li *ngFor="let user of listaDeUsuarios">{{user | json}}</li>
-  </ul>
+  
 
-  <laber>{{150|currency}}</laber>
+  <h1>Lista de usuarios</h1>
+
+  <ion-list>
+    <ion-item *ngFor="let user of listaDeUsuarios">
+      <ion-label>{{ user.email }}</ion-label>
+      <ion-label>{{ user.password }}</ion-label>
+      <ion-button (click)="eliminar(user.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>

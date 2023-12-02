@@ -1,0 +1,19 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="register-card">
+    <ion-card-header>
+      <ion-card-title>Registrarse</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="container">
+        <ion-input [(ngModel)]="usuario.email" class="transparent-input" aria-label="Email input" placeholder="Correo electrónico"></ion-input>
+        <ion-input [(ngModel)]="usuario.password" type="password" class="transparent-input" aria-label="Password input" placeholder="Contraseña"></ion-input>
+        <ion-button (click)="onRegister()" shape="round">Registrarse</ion-button>
+      </div>
+      <ion-card-content class="already-have-account">
+        <a routerLink="/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+      </ion-card-content>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
