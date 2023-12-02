@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Panaderia Don Nico
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-input type="email" placeholder="ingrese su email" [(ngModel)]="usuario.email"></ion-input>
+  <ion-input type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password"></ion-input>
+  <ion-button (click)="altUsuario()">guardar usuario</ion-button>
+
+  <ul>
+    <li *ngFor="let user of listaDeUsuarios">{{user | json}}</li>
+  </ul>
+
+  <laber>{{150|currency}}</laber>
 </ion-content>
